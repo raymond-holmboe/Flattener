@@ -11,6 +11,15 @@ namespace Flattener.Tests
 {
     public class FlattenerTests
     {
+        [Fact]
+        public void AssertSample()
+        {
+            var sample = new Samples();
+            var rows = sample.Sample1();
+            rows.Count.ShouldBe(2);
+            rows[0].ShouldBe(new object[] { "foo", 5, "bar" });
+            rows[1].ShouldBe(new object[] { "foo", 10, "foobar" });
+        }
 
         [Fact]
         public void ObjectWithArrayIsWritten()

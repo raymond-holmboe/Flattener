@@ -6,6 +6,16 @@ namespace Flattener
 {
     public class Flattener
     {
+        public List<object[]> Flatten(object obj, params string[] fields)
+        {
+            var flattener = new Flattener();
+            var mappings = new List<FlattenerMapping>();
+            for (int i = 0; i < fields.Length; i++)
+                mappings.Add(new FlattenerMapping(fields[i], i));
+            var flattenedrows = flattener.Flatten(obj, mappings);
+            return flattenedrows;
+        }
+
         public List<object[]> Flatten(object obj, List<FlattenerMapping> mappings)
         {
             var objectconverter = new ObjectToDictionaryConverter();
