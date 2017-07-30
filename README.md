@@ -1,5 +1,5 @@
 # Flattener
-C# .NET Core 2 library, it flattens any nested object or dictionary into object array
+C# .NET Core 2 library, it flattens any nested object or dictionary into object arrays
 
 Example usage:
 
