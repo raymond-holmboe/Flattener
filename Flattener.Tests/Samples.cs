@@ -19,5 +19,18 @@ namespace Flattener.Tests
             var rows = new Flattener().Flatten(order, "customer", "lines.qty", "lines.product");
             return rows;
         }
+
+        public List<object[]> Sample2()
+        {
+            var order = new Dictionary<string, object>();
+            var orderlines = new List<Dictionary<string, object>>();
+            orderlines.Add(new Dictionary<string, object> { { "qty", 5 }, { "product", "bar" } });
+            orderlines.Add(new Dictionary<string, object> { { "qty", 10 }, { "product", "foobar" } });
+            order["customer"] = "foo";
+            order["lines"] = orderlines;
+            
+            var rows = new Flattener().Flatten(order, "customer", "lines.qty", "lines.product");
+            return rows;
+        }
     }
 }
