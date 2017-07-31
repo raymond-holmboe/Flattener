@@ -1,7 +1,7 @@
 # Flattener
 ## C# .NET Core 2 library, it flattens any nested object or dictionary into object arrays
 
-### Example usage:
+#### Sample 1: Convert from ```object``` to ```List<object[]>```
 
 ```c#
 var order = new
@@ -15,9 +15,9 @@ var order = new
 var rows = new Flattener().Flatten(order, "customer", "lines.qty", "lines.product");
 ```
 
-'rows' is a List<object[]> that contains [ "foo", 5, "bar" ] and [ "foo", 10, "foobar" ]
+'rows' is a ```List<object[]>``` that contains ```[ "foo", 5, "bar" ]``` and ```[ "foo", 10, "foobar" ]```
 
-### Same result as previous example, but this time the input is nested dictionaries instead of anonymous object:
+#### Sample 2: Convert from nested ```IDictionary<string, object>``` to ```List<object[]>```
 
 ```c#
 var order = new Dictionary<string, object>();
@@ -30,4 +30,4 @@ order["lines"] = orderlines;
 var rows = new Flattener().Flatten(order, "customer", "lines.qty", "lines.product");
 ```
 
-'rows' is a List<object[]> that contains [ "foo", 5, "bar" ] and [ "foo", 10, "foobar" ]
+'rows' is a ```List<object[]>``` that contains ```[ "foo", 5, "bar" ]``` and ```[ "foo", 10, "foobar" ]```
